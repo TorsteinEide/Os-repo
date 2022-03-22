@@ -12,7 +12,7 @@ public class Philosopher
     private State state;
     private boolean leftChopstick;
     private boolean rightChopstick;
-    private int p;
+    private int philosopherNumber;
 
     /**
      * constructor initializes an object of class philosopher
@@ -23,7 +23,7 @@ public class Philosopher
         this.leftChopstick=true;
         this.rightChopstick=true;
         this.state = State.THINKING;
-        this.p=philosopher;
+        this.philosopherNumber =philosopher;
     }
 
     /**
@@ -51,7 +51,21 @@ public class Philosopher
      */
     public int getPhilosopherNumber()
     {
-        return this.p;
+        return this.philosopherNumber;
+    }
+
+    public boolean setLeftChopstick(boolean state)
+    {
+        this.leftChopstick=state;
+
+        return this.leftChopstick;
+    }
+
+    public boolean setRightChopstick(boolean state)
+    {
+        this.rightChopstick = state;
+
+        return this.rightChopstick;
     }
 
     public boolean getLeftChopstickStatus()
