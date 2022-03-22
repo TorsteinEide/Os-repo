@@ -4,14 +4,14 @@ public class Chopsticks {
 
     public Chopsticks()
     {
-        init();
+        initializeChopsticks();
 
     }
 
     /**
      * inits the chopsticks
      */
-    public void init()
+    public void initializeChopsticks()
     {
         Chopstick firstChopstick = new Chopstick(0);
         Chopstick secondChopstick = new Chopstick(1);
