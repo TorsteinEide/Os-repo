@@ -4,26 +4,27 @@
 public class Philosophers
 {
 
+    Philosopher first = new Philosopher(0);
+    Philosopher second = new Philosopher(1);
+    Philosopher third = new Philosopher(2);
+    Philosopher fourth = new Philosopher(3);
+    Philosopher fifth = new Philosopher(4);
+
+    Philosopher[] philosophers = {first, second, third, fourth, fifth};
+
     /**
      * constructor initializes an object of class Philosophers
      */
     public Philosophers()
     {
-        initializePhilosophers();
+
     }
 
     /**
      * initializes all philosophers around the table
      */
-    public Philosopher[] initializePhilosophers()
+    public Philosopher[] getPhilosophers()
     {
-        Philosopher first = new Philosopher(0);
-        Philosopher second = new Philosopher(1);
-        Philosopher third = new Philosopher(2);
-        Philosopher fourth = new Philosopher(3);
-        Philosopher fifth = new Philosopher(4);
-
-        Philosopher[] philosophers = {first, second, third, fourth, fifth};
         return philosophers;
     }
 
@@ -34,7 +35,7 @@ public class Philosophers
      */
     public Philosopher getPhilosopher(int i)
     {
-        return initializePhilosophers()[i];
+        return getPhilosophers()[i];
     }
 
 

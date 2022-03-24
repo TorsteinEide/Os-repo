@@ -9,29 +9,31 @@ import java.util.Random;
 public class DiningTable extends Thread
 {
     //fields --------------------------------------------------
-    Philosophers philosophers = new Philosophers();
+    private static Philosophers philosophers = new Philosophers();
+    private static Philosopher philosopher;
 
     /**
      * constructor
      */
-    public DiningTable()
+    public DiningTable(int philosopherNumber)
     {
+        philosopher = philosophers.getPhilosopher(philosopherNumber);
     }
 
     /**
      * runs the "sim"
      */
-    public void run(Philosopher philosopher)
+    public void run()
     {
         //This code is running inside a thread
         boolean run=true;
         while(run) {
             try {
                 //check chopstick availability
-                if (checkChopsticksByPhilosopher(philosophers, philosopher)){
+                if (checkChopsticks(philosopher)){
                     System.out.println("chopsticks available");
                     //pick up chopsticks (wait?)
-                    System.out.println("Picking up chopsticks");
+                    System.out.println("Philosopher: " + philosopher.getPhilosopherNumber()+ " picking up chopsticks");
                     chopstickAction(philosopher);
                     //eat for a while
                     philosopher.setState(Philosopher.State.EATING);
@@ -81,7 +83,7 @@ public class DiningTable extends Thread
         boolean available = false;
 
         if(philosophers.getPhilosopher(philosopher.getPhilosopherNumber() + 1).getState() != Philosopher.State.EATING &&
-                philosophers.getPhilosopher((philosopher.getPhilosopherNumber() - 1) % 5).getState() != Philosopher.State.EATING)
+                philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 2) % 5).getState() != Philosopher.State.EATING)
         {
             available=true;
         }
@@ -119,15 +121,15 @@ public class DiningTable extends Thread
 
     public static void main(String[] args) {
         Philosophers philosophers = new Philosophers();
-        int i =0;
-        for(Philosopher philosopher : philosophers.initializePhilosophers())
-        {
-            DiningTable p = new DiningTable();
-            System.out.println("Philosopher: " + i + " running");
 
-            p.run(philosopher);
+        int i=0;
+        for(Philosopher philosopher:philosophers.getPhilosophers()){
+            Thread thread = new DiningTable(i);
+            System.out.println("Thread: " + i + " running");
+            thread.start();
             i++;
         }
+
 
 
     }
