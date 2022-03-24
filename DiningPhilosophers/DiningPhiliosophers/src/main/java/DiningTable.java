@@ -31,14 +31,14 @@ public class DiningTable extends Thread
             try {
                 //check chopstick availability
                 if (checkChopsticks(philosopher)){
-                    System.out.println("chopsticks available");
+                    System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " chopsticks available");
                     //pick up chopsticks (wait?)
                     System.out.println("Philosopher: " + philosopher.getPhilosopherNumber()+ " picking up chopsticks");
                     chopstickAction(philosopher);
                     //eat for a while
                     philosopher.setState(Philosopher.State.EATING);
                     int i = randomSleepTimer();
-                    System.out.println("Eating for: " + i + "s");
+                    System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " Eating for: " + i + "s");
                     sleep(i);
                     //signal putting chopsticks back (notify?)
                     chopstickAction(philosopher);
@@ -49,11 +49,11 @@ public class DiningTable extends Thread
                     {
                         //waitForChopsticks();
                     }
-                    System.out.println("chopsticks not available");
+                    System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " chopsticks not available");
                 }
                 // think for a while
                 int thinktimer=randomSleepTimer();
-                System.out.println("thinking for: " + thinktimer + "s");
+                System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " thinking for: " + thinktimer + "s");
                 sleep(thinktimer);
                 philosopher.setState(Philosopher.State.THINKING);
             } catch (Exception e)
@@ -116,7 +116,7 @@ public class DiningTable extends Thread
     public int randomSleepTimer()
     {
         Random random = new Random();
-        return random.nextInt(5) * 1000;
+        return random.nextInt(20) * 1000;
     }
 
     public static void main(String[] args) {
