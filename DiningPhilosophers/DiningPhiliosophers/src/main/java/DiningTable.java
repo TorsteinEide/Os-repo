@@ -28,7 +28,7 @@ public class DiningTable extends Thread
         while(run) {
             try {
                 //check chopstick availability
-                if (checkChopsticks(philosopher)){
+                if (checkChopsticksByPhilosopher(philosophers, philosopher)){
                     System.out.println("chopsticks available");
                     //pick up chopsticks (wait?)
                     System.out.println("Picking up chopsticks");
@@ -45,7 +45,7 @@ public class DiningTable extends Thread
                     //Wait until chopsticks are ready
                     while(!checkChopsticks(philosopher))
                     {
-
+                        //waitForChopsticks();
                     }
                     System.out.println("chopsticks not available");
                 }
@@ -53,6 +53,7 @@ public class DiningTable extends Thread
                 int thinktimer=randomSleepTimer();
                 System.out.println("thinking for: " + thinktimer + "s");
                 sleep(thinktimer);
+                philosopher.setState(Philosopher.State.THINKING);
             } catch (Exception e)
             {
                 System.out.println(e.getMessage());
@@ -72,6 +73,19 @@ public class DiningTable extends Thread
         {
             available=true;
         }
+        return available;
+    }
+
+    private boolean checkChopsticksByPhilosopher(Philosophers philosophers, Philosopher philosopher)
+    {
+        boolean available = false;
+
+        if(philosophers.getPhilosopher(philosopher.getPhilosopherNumber() + 1).getState() != Philosopher.State.EATING &&
+                philosophers.getPhilosopher((philosopher.getPhilosopherNumber() - 1) % 5).getState() != Philosopher.State.EATING)
+        {
+            available=true;
+        }
+
         return available;
     }
 
@@ -104,9 +118,17 @@ public class DiningTable extends Thread
     }
 
     public static void main(String[] args) {
-        DiningTable d = new DiningTable();
         Philosophers philosophers = new Philosophers();
-        d.run(philosophers.getPhilosopher(1));
+        int i =0;
+        for(Philosopher philosopher : philosophers.initializePhilosophers())
+        {
+            DiningTable p = new DiningTable();
+            System.out.println("Philosopher: " + i + " running");
+
+            p.run(philosopher);
+            i++;
+        }
+
 
     }
 

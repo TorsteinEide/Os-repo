@@ -3,8 +3,6 @@
  */
 public class Philosophers
 {
-    //fields
-    Philosopher[] philosophers = new Philosopher[5];
 
     /**
      * constructor initializes an object of class Philosophers
