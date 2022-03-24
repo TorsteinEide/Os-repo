@@ -9,15 +9,15 @@ import java.util.Random;
 public class DiningTable extends Thread
 {
     //fields --------------------------------------------------
-    private static Philosophers philosophers = new Philosophers();
-    private static Philosopher philosopher;
+    private static final Philosophers philosophers = new Philosophers();
+    private Philosopher philosopher;
 
     /**
      * constructor
      */
-    public DiningTable(int philosopherNumber)
+    public DiningTable(Philosopher philosopher)
     {
-        philosopher = philosophers.getPhilosopher(philosopherNumber);
+        this.philosopher = philosopher;
     }
 
     /**
@@ -25,15 +25,22 @@ public class DiningTable extends Thread
      */
     public void run()
     {
+        //TODO: Add monitoring (wait(), notify())
         //This code is running inside a thread
         boolean run=true;
+        synchronized (philosopher){
         while(run) {
             try {
+                // think for a while
+                int thinktimer = randomSleepTimer();
+                System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " thinking for: " + thinktimer + "s");
+                sleep(thinktimer);
+                philosopher.setState(Philosopher.State.THINKING);
                 //check chopstick availability
-                if (checkChopsticks(philosopher)){
+                if (checkChopsticksByPhilosopher()) {
                     System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " chopsticks available");
                     //pick up chopsticks (wait?)
-                    System.out.println("Philosopher: " + philosopher.getPhilosopherNumber()+ " picking up chopsticks");
+                    System.out.println("Philosopher: " + philosopher.getPhilosopherNumber() + " picking up chopsticks");
                     chopstickAction(philosopher);
                     //eat for a while
                     philosopher.setState(Philosopher.State.EATING);
@@ -42,24 +49,21 @@ public class DiningTable extends Thread
                     sleep(i);
                     //signal putting chopsticks back (notify?)
                     chopstickAction(philosopher);
-                } else if (!checkChopsticks(philosopher)){
+                } else if (!checkChopsticksByPhilosopher()) {
                     philosopher.setState(Philosopher.State.HUNGRY);
+                    System.out.println("hungry");
                     //Wait until chopsticks are ready
-                    while(!checkChopsticks(philosopher))
-                    {
+                    while (!checkChopsticksByPhilosopher()) {
                         //waitForChopsticks();
+                        System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " is waiting for chopticks");
+                        wait();
                     }
                     System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " chopsticks not available");
                 }
-                // think for a while
-                int thinktimer=randomSleepTimer();
-                System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " thinking for: " + thinktimer + "s");
-                sleep(thinktimer);
-                philosopher.setState(Philosopher.State.THINKING);
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+        }
         }
     }
 
@@ -78,12 +82,14 @@ public class DiningTable extends Thread
         return available;
     }
 
-    private boolean checkChopsticksByPhilosopher(Philosophers philosophers, Philosopher philosopher)
+
+
+    private boolean checkChopsticksByPhilosopher()
     {
         boolean available = false;
 
-        if(philosophers.getPhilosopher(philosopher.getPhilosopherNumber() + 1).getState() != Philosopher.State.EATING &&
-                philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 2) % 5).getState() != Philosopher.State.EATING)
+        if(!philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 1) % 5).getState().equals(Philosopher.State.EATING) ||
+            !philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 4) % 5).getState().equals(Philosopher.State.EATING))
         {
             available=true;
         }
@@ -124,7 +130,7 @@ public class DiningTable extends Thread
 
         int i=0;
         for(Philosopher philosopher:philosophers.getPhilosophers()){
-            Thread thread = new DiningTable(i);
+            Thread thread = new DiningTable(philosopher);
             System.out.println("Thread: " + i + " running");
             thread.start();
             i++;

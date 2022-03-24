@@ -9,5 +9,8 @@
         <module name="DiningPhiliosophers" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="DiningPhiliosophers" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
