@@ -28,8 +28,8 @@ public class DiningTable extends Thread
         //TODO: Add monitoring (wait(), notify())
         //This code is running inside a thread
         boolean run=true;
-        synchronized (philosopher){
         while(run) {
+            synchronized (this){
             try {
                 // think for a while
                 int thinktimer = randomSleepTimer();
@@ -37,27 +37,25 @@ public class DiningTable extends Thread
                 sleep(thinktimer);
                 philosopher.setState(Philosopher.State.THINKING);
                 //check chopstick availability
-                if (checkChopsticksByPhilosopher()) {
+                if (checkChopsticks(philosopher)) {
                     System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " chopsticks available");
                     //pick up chopsticks (wait?)
+                    chopStickAction(philosopher);
                     System.out.println("Philosopher: " + philosopher.getPhilosopherNumber() + " picking up chopsticks");
-                    chopstickAction(philosopher);
                     //eat for a while
                     philosopher.setState(Philosopher.State.EATING);
                     int i = randomSleepTimer();
                     System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " Eating for: " + i + "s");
                     sleep(i);
                     //signal putting chopsticks back (notify?)
-                    chopstickAction(philosopher);
-                } else if (!checkChopsticksByPhilosopher()) {
+                    chopStickAction(philosopher);
+                    System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " putting back chopsticks");
+                    this.notify();
+                } else if (!checkChopsticks(philosopher)) {
                     philosopher.setState(Philosopher.State.HUNGRY);
-                    System.out.println("hungry");
+                    System.out.println("Philosopher: " + philosopher.getPhilosopherNumber() + " is hungry and waiting for chopsticks");
                     //Wait until chopsticks are ready
-                    while (!checkChopsticksByPhilosopher()) {
-                        //waitForChopsticks();
-                        System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " is waiting for chopticks");
-                        wait();
-                    }
+                    this.wait();
                     System.out.println("philosopher: " + philosopher.getPhilosopherNumber() + " chopsticks not available");
                 }
             } catch (Exception e) {
@@ -75,35 +73,22 @@ public class DiningTable extends Thread
     private boolean checkChopsticks(Philosopher philosopher)
     {
         boolean available = false;
-        if(philosopher.getLeftChopstickStatus() && philosopher.getRightChopstickStatus())
+        Philosopher p1 = philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 4) % 5);
+        Philosopher p2 = philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 1) % 5);
+
+        if(p1.getLeftChopstickStatus() && p1.getRightChopstickStatus())
         {
-            available=true;
+            if(p2.getLeftChopstickStatus() && p2.getRightChopstickStatus())
+            {
+                available=true;
+            }
         }
         return available;
     }
 
-
-
-    private boolean checkChopsticksByPhilosopher()
+    private void chopStickAction(Philosopher philosopher)
     {
-        boolean available = false;
-
-        if(!philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 1) % 5).getState().equals(Philosopher.State.EATING) ||
-            !philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 4) % 5).getState().equals(Philosopher.State.EATING))
-        {
-            available=true;
-        }
-
-        return available;
-    }
-
-    /**
-     * sets the availability of each chopstick to false
-     * @param philosopher philosopher who picks up chopsticks
-     */
-    public void chopstickAction(Philosopher philosopher)
-    {
-        if (checkChopsticks(philosopher))
+        if(checkChopsticks(philosopher))
         {
             philosopher.setLeftChopstick(false);
             philosopher.setRightChopstick(false);
@@ -113,6 +98,19 @@ public class DiningTable extends Thread
         }
     }
 
+    private boolean checkChopsticksByPhilosopher()
+    {
+        boolean available = false;
+        Philosopher leftPhilosopher = philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 4) % 5);
+        Philosopher rightPhilosopher =  philosophers.getPhilosopher((philosopher.getPhilosopherNumber() + 4) % 5);
+
+        if(leftPhilosopher.getState().equals(Philosopher.State.THINKING) && rightPhilosopher.getState().equals(Philosopher.State.THINKING))
+        {
+            available=true;
+        }
+
+        return available;
+    }
 
     /**
      * creates a random number which is to be used as a timer for eating, waiting etc.
@@ -122,25 +120,30 @@ public class DiningTable extends Thread
     public int randomSleepTimer()
     {
         Random random = new Random();
-        return random.nextInt(20) * 1000;
+        return random.nextInt(10) * 1000;
     }
 
     public static void main(String[] args) {
-        Philosophers philosophers = new Philosophers();
-
-        int i=0;
-        for(Philosopher philosopher:philosophers.getPhilosophers()){
-            Thread thread = new DiningTable(philosopher);
-            System.out.println("Thread: " + i + " running");
-            thread.start();
-            i++;
-        }
-
-
-
+        Philosopher p = philosophers.getPhilosopher(0);
+        Philosopher p2 = philosophers.getPhilosopher(1);
+        p2.setState(Philosopher.State.EATING);
+        DiningTable dt = new DiningTable(p);
+        boolean shit = dt.checkChopsticksByPhilosopher();
+        System.out.println(shit);
     }
 
 
+    public void run1()
+    {
+        try{
+            while(true)
+            {
+
+            }
+        }catch(Exception e){
+            System.out.println("Error while running: " + e.getMessage());
+        }
+    }
 }
 
 
