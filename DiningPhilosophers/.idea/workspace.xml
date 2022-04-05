@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f45bcdfa-f11d-40ae-bfbe-7226adc91d2e" name="Default Changelist" comment="" />
+    <list default="true" id="f45bcdfa-f11d-40ae-bfbe-7226adc91d2e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhiliosophers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiningPhiliosophers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhiliosophers/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/DiningPhiliosophers/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiningPhilosopher-joakim/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiningPhilosopher-joakim/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiningPhilosopher-joakim/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/DiningPhilosopher.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DiningPhilosopher-joakim/DiningPhilosopher.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiningPhilosopher-joakim/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/target/classes/Chopstick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/target/classes/DiningTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/target/classes/Philosopher$State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiningPhilosopher-joakim/target/classes/Philosopher.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/DiningPhiliosophers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -33,6 +46,7 @@
       <updated>1647948667323</updated>
       <workItem from="1647948670347" duration="37000" />
       <workItem from="1647979348658" duration="30000" />
+      <workItem from="1648546966389" duration="16000" />
     </task>
     <servers />
   </component>

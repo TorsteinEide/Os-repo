@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50455e33-e289-4645-b066-35e80510f0c5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DiningTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DiningTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/DiningTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DiningTable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DiningPhilosopher-joakim/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DiningPhilosopher-joakim/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DiningPhilosopher-joakim/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/DiningPhilosopher.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DiningPhilosopher-joakim/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/target/classes/Chopstick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/target/classes/DiningTable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/target/classes/Philosopher$State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DiningPhilosopher-joakim/target/classes/Philosopher.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +39,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="DiningTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -67,6 +77,9 @@
       <workItem from="1648242632118" duration="119000" />
       <workItem from="1648244180011" duration="6087000" />
       <workItem from="1648252863106" duration="2000" />
+      <workItem from="1648546820022" duration="118000" />
+      <workItem from="1648546943658" duration="22000" />
+      <workItem from="1649175434519" duration="11000" />
     </task>
     <servers />
   </component>
@@ -84,16 +97,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/DiningTable.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
