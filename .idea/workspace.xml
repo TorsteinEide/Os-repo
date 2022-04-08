@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ac31ab20-7e2b-4449-9a26-f1e740881568" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Os-repo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/src/main/java/Barber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/src/main/java/BarberShop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/src/main/java/Chair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/src/main/java/Costumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/src/main/java/CostumerQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/target/classes/Barber.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/target/classes/BarberShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/target/classes/Chair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/target/classes/Costumer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SleepingBarber/target/classes/CostumerQueue.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="27T3cUCnZRQ9S6042EOc0GVlTpP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac31ab20-7e2b-4449-9a26-f1e740881568" name="Default Changelist" comment="" />
+      <created>1649330330916</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649330330916</updated>
+      <workItem from="1649330333804" duration="462000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
